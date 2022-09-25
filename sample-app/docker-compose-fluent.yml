@@ -1,0 +1,13 @@
+services:
+  structuredlogging:
+    container_name: structuredlogging
+    build: .
+    ports:
+      - 5001:5001
+    environment:
+      - ASPNETCORE_URLS=http://+:5001
+    logging:
+      driver: fluentd
+      options:
+        tag: "structuredlogging"
+    restart: always
